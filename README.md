@@ -25,3 +25,6 @@ Users should be able to return books that they previously checked out.
 
  -----
  ![alt text](image.png)
+
+### See all books in the library’s catalog
+ ![alt text](image-1.png)

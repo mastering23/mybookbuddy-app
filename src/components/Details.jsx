@@ -7,14 +7,19 @@ export const Details = () => {
   const navigate = useNavigate();
 
   return (
-    <>   <h1>DETAILS COMPONENT IS WORKING</h1>
+    <>   <h1>DETAILS</h1>
       <div>
+    
+        <h1>Title : {item.state.title} </h1> <br />
+        <em>
         ID : {item.state.id} <br />
-        Title : {item.state.title} <br />
         Description : {item.state.description} <br />
-        Create By Author: {item.state.author} <br />
-        Available :{item.state.available.toString()} <br /><br /><br />
-        {<img src={item.state.coverimage.toString()} width="200" alt="book image" />} <br /><br />
+        Create By Author : {item.state.author} <br />
+        <br /><br /><br />
+        </em>
+      
+        {<img src={item.state.coverimage.toString()} width="200" alt="book image" />} <br />
+         <strong> Available : {item.state.available.toString()} </strong> <br /><br />
 
 
       </div>

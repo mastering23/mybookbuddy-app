@@ -42,3 +42,11 @@ The first issue I encountered was rendering the "Available" keyword from the API
 ----
 
  ![alt text](image-4.png)
+
+
+ ### Login / Registration 
+ 
+ Rendering components 
+ ![alt text](image-5.png)
+
+ ![alt text](image-6.png)

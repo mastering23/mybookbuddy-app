@@ -19,7 +19,7 @@ export const Api = () => {
   return (
     <>
       <center><h1>MyBook Buddy</h1></center>
-      <h3> Books | Catalog</h3>
+      <h2> Books | Catalog</h2>
       <hr />
       <ol>
         {item.map((singlebook, index) => (

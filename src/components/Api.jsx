@@ -50,7 +50,7 @@ export const Api = () => {
   const handleAddToCart = (singlebook) => {
     let item = cartItems.find(item => item.id === singlebook.id);
     if (item) {
-      alert('Item is already in the cart');
+      alert('item already added to the cart')
     } else {
       const newCartItems = [...cartItems, { id: singlebook.id, name: singlebook.title, quantity: 1, price: 1.0 }];
       setCartItems(newCartItems);

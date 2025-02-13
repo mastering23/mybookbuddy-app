@@ -3,12 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import { CartList } from './CartList';
 import { Checkout } from './Checkout';
 
+
+
+
 export const Api = () => {
+ 
   const [signedIn, setSignedIn] = useState(false);
   const [email, setEmail] = useState('');
   const [item, setItem] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
+
+
+
 
   const checkSignedIn = async () => {
     const email = localStorage.getItem('email');
@@ -98,7 +105,7 @@ export const Api = () => {
             Name: {singlebook.title}
             <br />
             <br />
-            <button onClick={() => navigate('/details', { state: singlebook })}>See more details</button>
+            <button onClick={() => navigate(`/details/${singlebook.id}`, { state: singlebook })}>See more details</button>
             🛒
             <button onClick={() => handleAddToCart(singlebook)} disabled={!signedIn}> + </button>
             <button onClick={() => handleRemoveFromCart(singlebook)} disabled={!signedIn}> - </button>

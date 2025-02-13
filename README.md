@@ -73,6 +73,10 @@ Using the singlebook.available keyword with true or false values, I created cond
  ### Checkout Cart
  ![alt text](image-8.png)
 "More work is needed. I need to integrate user details during checkout and send the information to the reserved API. Additionally, I will create a component to track these transactions, which will later be used to manage book returns and maintain a log."
- 
+### fixing the Checkout plan 
+![alt text](image-13.png)
+
+
  ### CSS Style 
 "I still need to work more on this part, but I’ve been focusing more on the logic rather than the styling of the pages."
+

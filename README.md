@@ -58,9 +58,12 @@ The first issue I encountered was rendering the "Available" keyword from the API
 
  "More work is needed. You should only add the available books. This can be easily done by adding an if condition that checks the Available keyword, which has a true or false value. Based on this, I can resolve the issue."
 
-### fixed it 
+### fixed it books Available | Book Not Available
+Using the singlebook.available keyword with true or false values, I created conditions to add books to the shopping cart based on true values. If the value is false, an alert is shown to the user. 
  ![alt text](image-9.png)
  ![alt text](image-10.png)
+ Additionally, I added a tag indicating whether the book is available to guide users before they click "Add to Cart".if the user click on add cart , an alert message will pop 
+ to remind the user that the book is not available.
  ![alt text](image-11.png)
 
 

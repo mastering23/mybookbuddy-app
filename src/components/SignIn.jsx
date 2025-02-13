@@ -25,10 +25,16 @@ export const SignIn = () => {
       const result = await response.json();
 
       console.log(result.token);
-      localStorage.setItem('email', usernameValue);
-      localStorage.setItem('token', result.token);
+
+      if(result.token) {
+        localStorage.setItem('email', usernameValue);
+        localStorage.setItem('token', result.token);
+        navigate('/api');
+      }
+      else {
+        alert('access denied');
+      }
       
-      navigate('/api');
     } catch (error) {
       console.error('Error:', error);
     }

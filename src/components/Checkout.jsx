@@ -28,6 +28,8 @@ export const Checkout = () => {
           <button onClick={handleCheckout}>Checkout</button>
         </>
       )}
+        <button onClick={() => navigate('/api', { state:"" })}>Cancel</button>
     </div>
+    
   );
 };

@@ -66,6 +66,8 @@ Using the singlebook.available keyword with true or false values, I created cond
  to remind the user that the book is not available.
  ![alt text](image-11.png)
 
+### UseParams added 
+![alt text](image-12.png)
 
 -----
  ### Checkout Cart

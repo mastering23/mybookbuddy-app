@@ -6,7 +6,7 @@ export const Checkout = () => {
   const cartItems = location.state || [];
   const navigate = useNavigate();
 
-  const handleCheckout = () => {
+  const handleCheckout = () => {    
     alert('Checkout successful!');
     navigate('/api');
   };

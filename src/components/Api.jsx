@@ -29,7 +29,12 @@ export const Api = () => {
       </div>
       );
     } else {
-      return <button onClick={() => navigate('/login')}>Sign in</button>
+      return (
+      <div>
+        <button onClick={() => navigate('/login')}>Sign in</button>
+        <button onClick={() => navigate('/register')}>Register</button>
+      </div>
+      );
     }
   }
 

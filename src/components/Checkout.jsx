@@ -8,7 +8,7 @@ export const Checkout = () => {
 
   const handleCheckout = () => {
     alert('Checkout successful!');
-    navigate('/');
+    navigate('/api');
   };
 
   return (

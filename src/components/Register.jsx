@@ -55,12 +55,16 @@ export const Register = () => {
 
 
   return (
-    <>
-      Firstname: <input value={firstNameValue} onChange={handleFirstNameChange} /><br />
-      Lastname: <input value={lastNameValue} onChange={handleLastNameChange} /><br />
-      email: <input value={emailValue} onChange={handleEmailChange} /><br />
-      password: <input value={passwordValue} onChange={handlePasswordChange} /><br />
-      <button onClick={handleRegisterClick}>Register</button>
-    </>
+    <div>
+      <button class="back-button" onClick={()=> navigate(-1)}>Go Back</button>  {/*navigate(-1) means to go back in history*/}
+      <div class="my-form">
+        <h2>BookBuddy | Registration</h2>
+        <label>Firstname</label><input type="text" value={firstNameValue} onChange={handleFirstNameChange} /><br />
+        <label>Lastname</label><input type="text" value={lastNameValue} onChange={handleLastNameChange} /><br />
+        <label> Email</label> <input type="email" value={emailValue} onChange={handleEmailChange} /><br />
+        <label>Password</label> <input type="password" value={passwordValue} onChange={handlePasswordChange} /><br />
+        <button onClick={handleRegisterClick}>Register</button>
+      </div>
+    </div>
   );
 };

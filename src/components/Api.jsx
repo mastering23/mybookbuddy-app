@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CartList } from './CartList';
+import { Checkout } from './Checkout';
 
 export const Api = () => {
   const [signedIn, setSignedIn] = useState(false);
@@ -14,12 +16,12 @@ export const Api = () => {
       setEmail(email);
       setSignedIn(true);
     }
-  }
+  };
 
   const handleLogout = () => {
     localStorage.clear();
     setSignedIn(false);
-  }
+  };
 
   const showSignInOrUser = () => {
     if (signedIn) {
@@ -27,7 +29,8 @@ export const Api = () => {
         <div>
           <p>Signed-in as <b>{email}</b></p>
           <button onClick={handleLogout}>Logout</button>
-          <button onClick={() => navigate('/cart-list', { state: cartItems })}>Go to Cart</button> : {cartItems.length} items in cart
+          <button onClick={() => navigate('/checkout', { state: cartItems })}>
+            Go to Cart</button> : {cartItems.length} items in cart
         </div>
       );
     } else {
@@ -38,7 +41,7 @@ export const Api = () => {
         </div>
       );
     }
-  }
+  };
 
   const getApiData = async () => {
     const res = await fetch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/books`);
@@ -47,18 +50,35 @@ export const Api = () => {
     console.log(data.books);
   };
 
+
   const handleAddToCart = (singlebook) => {
-    let item = cartItems.find(item => item.id === singlebook.id);
-    if (item) {
-      alert('item already added to the cart')
+    const itemIndex = cartItems.findIndex(item => item.id === singlebook.id);
+    if (itemIndex >= 0) {
+      const updatedCart = cartItems.map((item, index) =>
+        index === itemIndex ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      setCartItems(updatedCart);
     } else {
-      const newCartItems = [...cartItems, { id: singlebook.id, name: singlebook.title, quantity: 1, price: 1.0 }];
+      const newCartItems = [...cartItems, 
+        { id: singlebook.id, name: singlebook.title, quantity: 1 }];
       setCartItems(newCartItems);
     }
-  }
+  };
+
+
+  const handleRemoveFromCart = (singlebook) => {
+    const itemIndex = cartItems.findIndex(item => item.id === singlebook.id);
+    if (itemIndex >= 0) {
+      const updatedCart = cartItems.map((item, index) =>
+        index === itemIndex ? { ...item, quantity: item.quantity - 1 } : item
+      ).filter(item => item.quantity > 0);
+      setCartItems(updatedCart);
+    }
+  };
+
 
   useEffect(() => {
-    getApiData()
+    getApiData();
     checkSignedIn();
   }, []);
 
@@ -66,16 +86,18 @@ export const Api = () => {
     <>
       {showSignInOrUser()}
       <center><h1>MyBook Buddy</h1></center>
-      <h2> Books | Catalog</h2>
+      <h2>Books | Catalog</h2>
       <hr />
       <ol>
         {item.map((singlebook, index) => (
           <li key={index}>
-            Name : {singlebook.title}
+            Name: {singlebook.title}
             <br />
             <br />
             <button onClick={() => navigate('/details', { state: singlebook })}>See more details</button>
-            <button onClick={() => handleAddToCart(singlebook)} disabled={!signedIn}>Add to Cart</button>
+            🛒
+            <button onClick={() => handleAddToCart(singlebook)} disabled={!signedIn}> + </button>
+            <button onClick={() => handleRemoveFromCart(singlebook)} disabled={!signedIn}> - </button>
             <hr />
           </li>
         ))}

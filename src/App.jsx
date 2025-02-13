@@ -4,7 +4,8 @@ import { Routes, Route } from 'react-router-dom'
 import { Api } from './components/Api';
 import { Details } from './components/Details';
 import { Register } from './components/Register';
-import { Login } from './components/Login';
+// import { Login } from './components/Login';
+import { SignIn } from './components/SignIn';
 
 const App = () => {
 
@@ -14,7 +15,7 @@ const App = () => {
         <Route path="/api" element={<Api />} />
         <Route  path ="/details" element={<Details />} />
         <Route  path ="/register" element={<Register />} />
-        <Route  path ="/login" element={<Login />} />
+        <Route  path ="/login" element={<SignIn />} />
       </Routes>
     </>
   )

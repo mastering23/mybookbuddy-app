@@ -30,7 +30,7 @@ export const Api = () => {
           <p>Signed-in as <b>{email}</b></p>
           <button onClick={handleLogout}>Logout</button>
           <button onClick={() => navigate('/checkout', { state: cartItems })}>
-            Go to Cart</button> : {cartItems.length} items in cart
+            Go to Cart</button> : {cartItems.length} items in cart  🛒
         </div>
       );
     } else {
@@ -50,20 +50,24 @@ export const Api = () => {
     console.log(data.books);
   };
 
-
   const handleAddToCart = (singlebook) => {
-    const itemIndex = cartItems.findIndex(item => item.id === singlebook.id);
-    if (itemIndex >= 0) {
-      const updatedCart = cartItems.map((item, index) =>
-        index === itemIndex ? { ...item, quantity: item.quantity + 1 } : item
-      );
-      setCartItems(updatedCart);
+    if (singlebook.available === true) {
+      const itemIndex = cartItems.findIndex(item => item.id === singlebook.id);
+      if (itemIndex >= 0) {
+        const updatedCart = cartItems.map((item, index) =>
+          index === itemIndex ? { ...item, quantity: item.quantity + 1 } : item
+        );
+        setCartItems(updatedCart);
+      } else {
+        const newCartItems = [...cartItems, 
+          { id: singlebook.id, name: singlebook.title, quantity: 1 }];
+        setCartItems(newCartItems);
+      }
     } else {
-      const newCartItems = [...cartItems, 
-        { id: singlebook.id, name: singlebook.title, quantity: 1 }];
-      setCartItems(newCartItems);
+      alert("Book Not Available 🟥");
     }
   };
+  
 
 
   const handleRemoveFromCart = (singlebook) => {
@@ -98,6 +102,7 @@ export const Api = () => {
             🛒
             <button onClick={() => handleAddToCart(singlebook)} disabled={!signedIn}> + </button>
             <button onClick={() => handleRemoveFromCart(singlebook)} disabled={!signedIn}> - </button>
+            <h4>{singlebook.available ? 'Book Available 🟩' : 'Book Not Available 🟥' }</h4>
             <hr />
           </li>
         ))}

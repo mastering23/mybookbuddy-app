@@ -58,7 +58,13 @@ The first issue I encountered was rendering the "Available" keyword from the API
 
  "More work is needed. You should only add the available books. This can be easily done by adding an if condition that checks the Available keyword, which has a true or false value. Based on this, I can resolve the issue."
 
+### fixed it 
+ ![alt text](image-9.png)
+ ![alt text](image-10.png)
+ ![alt text](image-11.png)
 
+
+-----
  ### Checkout Cart
  ![alt text](image-8.png)
 "More work is needed. I need to integrate user details during checkout and send the information to the reserved API. Additionally, I will create a component to track these transactions, which will later be used to manage book returns and maintain a log."

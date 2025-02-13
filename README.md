@@ -50,3 +50,18 @@ The first issue I encountered was rendering the "Available" keyword from the API
  ![alt text](image-5.png)
 
  ![alt text](image-6.png)
+
+
+ ### Shopping cart
+ ![alt text](image-7.png)
+
+
+ "More work is needed. You should only add the available books. This can be easily done by adding an if condition that checks the Available keyword, which has a true or false value. Based on this, I can resolve the issue."
+
+
+ ### Checkout Cart
+ ![alt text](image-8.png)
+"More work is needed. I need to integrate user details during checkout and send the information to the reserved API. Additionally, I will create a component to track these transactions, which will later be used to manage book returns and maintain a log."
+ 
+ ### CSS Style 
+"I still need to work more on this part, but I’ve been focusing more on the logic rather than the styling of the pages."

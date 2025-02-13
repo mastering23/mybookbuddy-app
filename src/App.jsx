@@ -4,7 +4,9 @@ import { Routes, Route } from 'react-router-dom'
 import { Api } from './components/Api';
 import { Details } from './components/Details';
 import { Register } from './components/Register';
-import { Login } from './components/Login';
+import { SignIn } from './components/SignIn';
+import { CartList } from './components/CartList';
+import { Checkout } from './components/Checkout';
 
 const App = () => {
 
@@ -14,7 +16,8 @@ const App = () => {
         <Route path="/api" element={<Api />} />
         <Route  path ="/details" element={<Details />} />
         <Route  path ="/register" element={<Register />} />
-        <Route  path ="/login" element={<Login />} />
+        <Route  path ="/login" element={<SignIn />} />
+        <Route  path ="/checkout" element={<Checkout />} /> 
       </Routes>
     </>
   )

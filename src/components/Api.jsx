@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CartList } from './CartList';
-import { Checkout } from './Checkout';
-
-
+// import { CartList } from './CartList';
+// import { Checkout } from './Checkout';
 
 
 export const Api = () => {
@@ -36,6 +34,7 @@ export const Api = () => {
         <div>
           <p>Signed-in as <b>{email}</b></p>
           <button onClick={handleLogout}>Logout</button>
+          <button onClick={() => navigate('/userlog')}>User Log</button>
           <button onClick={() => navigate('/checkout', { state: cartItems })}>
             Go to Cart</button> : {cartItems.length} items in cart  🛒
         </div>
@@ -62,7 +61,7 @@ export const Api = () => {
       const itemIndex = cartItems.findIndex(item => item.id === singlebook.id);
       if (itemIndex >= 0) {
         const updatedCart = cartItems.map((item, index) =>
-          index === itemIndex ? { ...item, quantity: item.quantity + 1 } : item
+          index === itemIndex ? { ...item, quantity: item.quantity + 1 } : item        
         );
         setCartItems(updatedCart);
       } else {
@@ -70,6 +69,7 @@ export const Api = () => {
           { id: singlebook.id, name: singlebook.title, quantity: 1 }];
         setCartItems(newCartItems);
       }
+    
     } else {
       alert("Book Not Available 🟥");
     }
@@ -95,10 +95,12 @@ export const Api = () => {
 
   return (
     <>
+      <div id="main-list">
       {showSignInOrUser()}
       <center><h1>MyBook Buddy</h1></center>
       <h2>Books | Catalog</h2>
       <hr />
+   
       <ol>
         {item.map((singlebook, index) => (
           <li key={index}>
@@ -110,10 +112,12 @@ export const Api = () => {
             <button onClick={() => handleAddToCart(singlebook)} disabled={!signedIn}> + </button>
             <button onClick={() => handleRemoveFromCart(singlebook)} disabled={!signedIn}> - </button>
             <h4>{singlebook.available ? 'Book Available 🟩' : 'Book Not Available 🟥' }</h4>
+           
             <hr />
           </li>
         ))}
       </ol>
+      </div>
     </>
   );
 };

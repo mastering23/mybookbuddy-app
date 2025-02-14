@@ -75,6 +75,19 @@ Using the singlebook.available keyword with true or false values, I created cond
 "More work is needed. I need to integrate user details during checkout and send the information to the reserved API. Additionally, I will create a component to track these transactions, which will later be used to manage book returns and maintain a log."
 ### fixing the Checkout plan 
 ![alt text](image-13.png)
+![alt text](image-15.png)
+
+### userLog issues - fixed
+"When creating the user log, I needed to print a receipt to track checkout history. I encountered an issue where each item was generating a separate receipt, even if they were part of the same checkout. To fix this, I grouped the items by their checkout time, meaning those checked out together would be grouped as one receipt. I stored this data in local storage.everything a checkout is generate from there my useglog can grab the data and generate the receipt"
+
+----------------------
+
+![alt text](image-14.png)
+
+### Userlog was added to main menu 
+![alt text](image-16.png)
+![alt text](image-17.png)
+
 
 
  ### CSS Style 

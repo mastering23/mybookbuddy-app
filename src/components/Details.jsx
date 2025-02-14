@@ -14,9 +14,7 @@ export const Details = () => {
     <>
       <div id="main-details">
         <h1>DETAILS | ITEM : {id}</h1>
-
         <div>
-
           <h1>Title : {item.state.title} </h1> <br />
           <br />
           <figure>

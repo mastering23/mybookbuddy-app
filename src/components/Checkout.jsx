@@ -66,13 +66,11 @@ export const Checkout = () => {
     <div>
       <h2>Cart Items for Checkout</h2>
       {cartItems.length === 0 ? (
-        <p>No items in the cart. Add some items to proceed.</p>
+        <div>  <center> <p>No items in the cart. Add some items to proceed.</p>
+          <button onClick={() => navigate('/api')}>go back</button></center>    </div>
       ) : (
         <>
           <center>
-
-
-
             <table>
               <thead>
                 <tr>
@@ -92,6 +90,7 @@ export const Checkout = () => {
             <button onClick={handleCheckout}>Checkout</button>
             <button onClick={() => navigate('/api')}>Cancel</button>
           </center>
+
         </>
       )}
     </div>

@@ -31,11 +31,18 @@ export const Api = () => {
     if (signedIn) {
       return (
         <div>
-          <p>Signed-in as <b>{email}</b></p>
-          <button onClick={handleLogout}>Logout</button>
-          <button onClick={() => navigate('/userlog')}>User Log</button>
-          <button onClick={() => navigate('/checkout', { state: cartItems })}>
-            Go to Cart</button> : {cartItems.length} items in cart  🛒
+          <div id="loggers">
+            <p>Signed-in as <b>{email}</b></p>
+            <button onClick={handleLogout}>Logout</button>
+            <button onClick={() => navigate('/userlog')}>User Log</button>
+            <div id="cart">
+              {cartItems.length} items in cart  🛒<button onClick={() => navigate('/checkout', { state: cartItems })}>
+                Go to Cart</button>
+              <br />
+            </div>
+          </div>
+
+
         </div>
       );
     } else {
@@ -93,10 +100,11 @@ export const Api = () => {
 
   return (
     <>
+
       <div id="main-list">
         {showSignInOrUser()}
-        <center><h1>MyBook Buddy</h1></center>
-        <h2>Books | Catalog</h2>
+        <center><h1 id="mainTitle">Library Online</h1></center>
+        <h2><h1>MyBook Buddy</h1>Books | Catalog</h2>
         <hr />
 
         <ol>
@@ -105,14 +113,14 @@ export const Api = () => {
               {console.log(singlebook)}
               <BookImage src={singlebook.coverimage} alt="book image" width="200" height="300" />
               <br /> <br />
-              <strong>TITLE: {singlebook.title}</strong>
+              <strong>Title : {singlebook.title}</strong>
               <br />
-              <br />
-              🛒
-              <button onClick={() => handleAddToCart(singlebook)} disabled={!signedIn}> + </button>
+
+              🛒<button onClick={() => handleAddToCart(singlebook)} disabled={!signedIn}> + </button>
               <button onClick={() => handleRemoveFromCart(singlebook)} disabled={!signedIn}> - </button>
               <button onClick={() => navigate(`/details/${singlebook.id}`, { state: singlebook })}>See more details</button> <br />
-              <h4>{singlebook.available ? 'Book Available 🟩' : 'Book Not Available 🟥'}</h4>
+              <h3>{singlebook.available ? 'Book Available 🟩' : 'Book Not Available 🟥'}</h3>
+
 
               <hr />
             </li>

@@ -91,5 +91,4 @@ Using the singlebook.available keyword with true or false values, I created cond
 
 
  ### CSS Style 
-"I still need to work more on this part, but I’ve been focusing more on the logic rather than the styling of the pages."
-
+![alt text](image-18.png)

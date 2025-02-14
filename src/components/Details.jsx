@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { BookImage } from './BookImage';
 
 export const Details = () => {
   const item = useLocation();
@@ -22,7 +23,8 @@ export const Details = () => {
         <br /><br /><br />
         </em>
       
-        {<img src={item.state.coverimage.toString()} width="200" alt="book image" />} <br />
+        {
+          <BookImage src={item.state.coverimage.toString()} width="200" alt="book image" />} <br />
          <strong> Available : {item.state.available.toString()} </strong> <br /><br />
 
      

@@ -1,0 +1,209 @@
+/* Container styling */
+#main-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+hr {
+  margin: 20px 0;
+}
+
+ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+li {
+    
+  padding: 20px;
+  margin: 10px;
+  width: 25%; 
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  margin: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+h4 {
+  color: #333;
+}
+
+li h4 {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+}
+#main-details {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: 80%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main-details h1 {
+  color: #333;
+  text-align: center;
+  font-size: 1.8em;
+}
+
+#main-details p {
+  font-size: 1.2em;
+  color: #666;
+}
+
+#main-details em {
+  font-style: italic;
+  color: #555;
+  line-height: 1.5;
+}
+
+#main-details strong {
+  font-weight: bold;
+  color: #444;
+}
+
+#main-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+#main-btn:hover {
+  background-color: #0056b3;
+}
+
+#main-details img {
+  display: block;
+  margin: 10px auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+  li {
+    width: 100%; /* Stacks items on small screens */
+  }
+}
+
+@media screen and (max-width: 1256px) {
+
+  ol {
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+#cart {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  background-color: #f4f4f4;
+  padding: 10px 60px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+}
+
+#cart .emoji {
+  font-size: 20px;
+}
+#loggers {
+  background-color: #35424a; /* Dark teal for a calming, professional look */
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 350px;
+  position: fixed;
+  top: 20px;
+  right: 20px; /* Sticks it to the top right corner */
+  transition: transform 0.3s ease;
+}
+
+#loggers:hover {
+  transform: scale(1.02); /* Slight hover effect for interactivity */
+}
+
+#loggers p {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#loggers b {
+  color: #FFB400; /* Bright accent color */
+}
+
+#loggers button {
+  background-color: #FFB400;
+  color: #35424a;
+  font-size: 14px;
+  padding: 10px 20px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#loggers button:hover {
+  background-color: #FF9933; /* Slightly darker when hovered */
+  transform: translateY(-3px); /* Subtle lift on hover */
+}
+
+#loggers button:focus {
+  outline: none;
+}
+
+
+h1, h2, h3, h4,p {
+  font-family: "Cinzel", serif;
+}
+
+#mainTitle{
+  font-size: 6rem;
+}

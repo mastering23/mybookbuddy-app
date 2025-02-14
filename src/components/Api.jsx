@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CartList } from './CartList';
-import { Checkout } from './Checkout';
-
-
+import { BookImage } from './BookImage';
 
 
 export const Api = () => {
- 
+
   const [signedIn, setSignedIn] = useState(false);
   const [email, setEmail] = useState('');
   const [item, setItem] = useState([]);
@@ -34,10 +31,18 @@ export const Api = () => {
     if (signedIn) {
       return (
         <div>
-          <p>Signed-in as <b>{email}</b></p>
-          <button onClick={handleLogout}>Logout</button>
-          <button onClick={() => navigate('/checkout', { state: cartItems })}>
-            Go to Cart</button> : {cartItems.length} items in cart  🛒
+          <div id="loggers">
+            <p>Signed-in as <b>{email}</b></p>
+            <button onClick={handleLogout}>Logout</button>
+            <button onClick={() => navigate('/userlog')}>User Log</button>
+            <div id="cart">
+              {cartItems.length} items in cart  🛒<button onClick={() => navigate('/checkout', { state: cartItems })}>
+                Go to Cart</button>
+              <br />
+            </div>
+          </div>
+
+
         </div>
       );
     } else {
@@ -66,15 +71,16 @@ export const Api = () => {
         );
         setCartItems(updatedCart);
       } else {
-        const newCartItems = [...cartItems, 
-          { id: singlebook.id, name: singlebook.title, quantity: 1 }];
+        const newCartItems = [...cartItems,
+        { id: singlebook.id, name: singlebook.title, quantity: 1 }];
         setCartItems(newCartItems);
       }
+
     } else {
       alert("Book Not Available 🟥");
     }
   };
-  
+
 
 
   const handleRemoveFromCart = (singlebook) => {
@@ -87,7 +93,6 @@ export const Api = () => {
     }
   };
 
-
   useEffect(() => {
     getApiData();
     checkSignedIn();
@@ -95,25 +100,33 @@ export const Api = () => {
 
   return (
     <>
-      {showSignInOrUser()}
-      <center><h1>MyBook Buddy</h1></center>
-      <h2>Books | Catalog</h2>
-      <hr />
-      <ol>
-        {item.map((singlebook, index) => (
-          <li key={index}>
-            Name: {singlebook.title}
-            <br />
-            <br />
-            <button onClick={() => navigate(`/details/${singlebook.id}`, { state: singlebook })}>See more details</button>
-            🛒
-            <button onClick={() => handleAddToCart(singlebook)} disabled={!signedIn}> + </button>
-            <button onClick={() => handleRemoveFromCart(singlebook)} disabled={!signedIn}> - </button>
-            <h4>{singlebook.available ? 'Book Available 🟩' : 'Book Not Available 🟥' }</h4>
-            <hr />
-          </li>
-        ))}
-      </ol>
+
+      <div id="main-list">
+        {showSignInOrUser()}
+        <center><h1 id="mainTitle">Library Online</h1></center>
+        <h2><h1>MyBook Buddy</h1>Books | Catalog</h2>
+        <hr />
+
+        <ol>
+          {item.map((singlebook, index) => (
+            <li key={index}>
+              {console.log(singlebook)}
+              <BookImage src={singlebook.coverimage} alt="book image" width="200" height="300" />
+              <br /> <br />
+              <strong>Title : {singlebook.title}</strong>
+              <br />
+
+              🛒<button onClick={() => handleAddToCart(singlebook)} disabled={!signedIn}> + </button>
+              <button onClick={() => handleRemoveFromCart(singlebook)} disabled={!signedIn}> - </button>
+              <button onClick={() => navigate(`/details/${singlebook.id}`, { state: singlebook })}>See more details</button> <br />
+              <h3>{singlebook.available ? 'Book Available 🟩' : 'Book Not Available 🟥'}</h3>
+
+
+              <hr />
+            </li>
+          ))}
+        </ol>
+      </div>
     </>
   );
 };

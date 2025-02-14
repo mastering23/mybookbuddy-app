@@ -52,7 +52,6 @@ export const SignIn = () => {
 
   return (
     <div>
-      <button class="back-button" onClick={()=> navigate(-1)}>Go Back</button>  {/*navigate(-1) means to go back in history*/}
       <div class='my-form'>
       <h2>BookBuddy | Sign In</h2>
       Username: <input value={usernameValue} onChange={handleUsernameChange} type='text' /><br />
@@ -60,6 +59,8 @@ export const SignIn = () => {
       <button onClick={handleSignInClick}>Sign In</button>
       <button onClick={() => navigate('/register')}>Register</button>
     </div>
+    <center><button class="back-button" onClick={()=> navigate(-1)}>Go Back</button> </center>
+       {/*navigate(-1) means to go back in history*/}
     </div>
 
   )

@@ -17,7 +17,7 @@ hr {
 ol {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 60px;
   padding-left: 0;
   list-style-type: none;
 }
@@ -33,8 +33,8 @@ button {
   background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 8px 12px;
-  margin: 5px 0;
+  padding: 10px 12px;
+  margin: 5px;
   font-size: 14px;
   cursor: pointer;
   border-radius: 5px;
@@ -58,9 +58,77 @@ li h4 {
   font-size: 16px;
   color: #333;
 }
+#main-details {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: 80%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main-details h1 {
+  color: #333;
+  text-align: center;
+  font-size: 1.8em;
+}
+
+#main-details p {
+  font-size: 1.2em;
+  color: #666;
+}
+
+#main-details em {
+  font-style: italic;
+  color: #555;
+  line-height: 1.5;
+}
+
+#main-details strong {
+  font-weight: bold;
+  color: #444;
+}
+
+#main-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+#main-btn:hover {
+  background-color: #0056b3;
+}
+
+#main-details img {
+  display: block;
+  margin: 10px auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
 @media screen and (max-width: 768px) {
   li {
     width: 100%; /* Stacks items on small screens */
+  }
+}
+
+@media screen and (max-width: 1256px) {
+
+  ol {
+    justify-content: space-around;
+    align-items: center;
   }
 }

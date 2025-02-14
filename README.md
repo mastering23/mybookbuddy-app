@@ -91,4 +91,14 @@ Using the singlebook.available keyword with true or false values, I created cond
 
 
  ### CSS Style 
+ 
+
 ![alt text](image-18.png)
+
+----
+
+"I resolved the broken image error (404) by creating a BookImage.jsx component. This component includes a fallback function that handles image errors by replacing the missing image with a default one from within the project. Ideally, the best solution would be to use an online image with global network access."
+
+------
+
+![alt text](image-19.png)

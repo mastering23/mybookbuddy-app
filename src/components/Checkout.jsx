@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './checkoutCss.css'; 
+import './checkoutCss.css';
 
 export const Checkout = () => {
   const location = useLocation();
@@ -27,7 +27,7 @@ export const Checkout = () => {
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
-            available: false, 
+            available: false,
           }),
         });
 
@@ -38,23 +38,23 @@ export const Checkout = () => {
         const result = await response.json();
         console.log('Book checked out successfully:', result);
 
-        
+
         const checkoutLog = {
-          title: item.title,  
-          author: item.author,  
-          id : item.id,
+          title: item.title,
+          author: item.author,
+          id: item.id,
           date: new Date().toLocaleDateString(),
           time: new Date().toLocaleTimeString(),
-          
+
         };
         checkoutLogs.push(checkoutLog);
       }
 
-     
+
       localStorage.setItem('checkoutLogs', JSON.stringify(checkoutLogs));
 
       alert('Books checked out successfully!');
-      navigate('/userlog'); 
+      navigate('/userlog');
 
     } catch (error) {
       console.error('Error during checkout:', error);
@@ -64,32 +64,37 @@ export const Checkout = () => {
 
   return (
     <div>
-  <h2>Cart Items for Checkout</h2>
-  {cartItems.length === 0 ? (
-    <p>No items in the cart. Add some items to proceed.</p>
-  ) : (
-    <>
-      <table>
-        <thead>
-          <tr>
-            <th>Item Name</th>
-            <th>Quantity</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cartItems.map((item) => (
-            <tr key={item.id}>
-              <td>{item.name}</td>
-              <td>{item.quantity}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <button onClick={handleCheckout}>Checkout</button>
-    </>
-  )}
-  <button onClick={() => navigate('/api')}>Cancel</button>
-</div>
+      <h2>Cart Items for Checkout</h2>
+      {cartItems.length === 0 ? (
+        <p>No items in the cart. Add some items to proceed.</p>
+      ) : (
+        <>
+          <center>
+
+
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Item Name</th>
+                  <th>Quantity</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cartItems.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.name}</td>
+                    <td>{item.quantity}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <button onClick={handleCheckout}>Checkout</button>
+            <button onClick={() => navigate('/api')}>Cancel</button>
+          </center>
+        </>
+      )}
+    </div>
 
   );
 };

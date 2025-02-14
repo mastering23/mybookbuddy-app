@@ -94,7 +94,7 @@ export const Api = () => {
   return (
     <>
       <div id="main-list">
-        {showSignInOrUser()} 
+        {showSignInOrUser()}
         <center><h1>MyBook Buddy</h1></center>
         <h2>Books | Catalog</h2>
         <hr />
@@ -103,24 +103,15 @@ export const Api = () => {
           {item.map((singlebook, index) => (
             <li key={index}>
               {console.log(singlebook)}
-              <BookImage src={singlebook.coverimage} alt="book image" width="100" height="100" />
-              {/* <img
-                src={singlebook.coverimage}
-                // src={defaultImg}
-                onError={handleImageError}
-                width="100"
-                alt="book image"
-              /> */}
-
-
+              <BookImage src={singlebook.coverimage} alt="book image" width="200" height="300" />
               <br /> <br />
-              <strong>Name: {singlebook.title}</strong>
+              <strong>TITLE: {singlebook.title}</strong>
               <br />
               <br />
-              <button onClick={() => navigate(`/details/${singlebook.id}`, { state: singlebook })}>See more details</button>
               🛒
               <button onClick={() => handleAddToCart(singlebook)} disabled={!signedIn}> + </button>
               <button onClick={() => handleRemoveFromCart(singlebook)} disabled={!signedIn}> - </button>
+              <button onClick={() => navigate(`/details/${singlebook.id}`, { state: singlebook })}>See more details</button> <br />
               <h4>{singlebook.available ? 'Book Available 🟩' : 'Book Not Available 🟥'}</h4>
 
               <hr />

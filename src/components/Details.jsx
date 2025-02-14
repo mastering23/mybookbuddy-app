@@ -7,28 +7,35 @@ import { BookImage } from './BookImage';
 export const Details = () => {
   const item = useLocation();
   const navigate = useNavigate();
-  const {id} = useParams();
+  const { id } = useParams();
 
 
   return (
-    <>   <h1>DETAILS</h1>
-          <p>item : {id}</p>
-      <div>
-    
-        <h1>Title : {item.state.title} </h1> <br />
-        <em>
-        ID : {item.state.id} <br />
-        Description : {item.state.description} <br />
-        Create By Author : {item.state.author} <br />
-        <br /><br /><br />
-        </em>
-      
-        {
-          <BookImage src={item.state.coverimage.toString()} width="200" alt="book image" />} <br />
-         <strong> Available : {item.state.available.toString()} </strong> <br /><br />
+    <>
+      <div id="main-details">
+        <h1>DETAILS | ITEM : {id}</h1>
 
-     
+        <div>
+
+          <h1>Title : {item.state.title} </h1> <br />
+          <br />
+          <figure>
+            {<BookImage src={item.state.coverimage.toString()} width="200" height="350" alt="book image" />}
+            <figcaption> <center><strong>Create by author : {item.state.author} </strong></center> </figcaption>
+          </figure>
+          <em>
+            BOOK ID : {item.state.id}
+            <br />
+            <hr />
+            <strong>Description : </strong>
+            <i> {item.state.description} </i> <br />
+          </em>
+
+
+          {/* <strong> Available : {item.state.available.toString()} </strong> <br /><br /> */}
+        </div>
+        <button id="main-btn" onClick={() => navigate('/api', { state: item.state.id })}>Go back</button>
       </div>
-      <button onClick={() => navigate('/api', { state: item.state.id })}>Go back</button>  </>
+    </>
   )
 }
